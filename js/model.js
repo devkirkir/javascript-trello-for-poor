@@ -1,15 +1,20 @@
 "use strict";
 
 let data = {
-    extraBoards: {
-        startId: 3,
-        boards: [
-            {
-                id: 3,
-                title: "Дополнительная доска",
-            },
-        ],
-    },
+    boards: [
+        {
+            id: 1,
+            title: "To Do",
+        },
+        {
+            id: 2,
+            title: "Doing",
+        },
+        {
+            id: 3,
+            title: "Done",
+        },
+    ],
     tasksCount: 2,
     tasks: [
         {
@@ -20,9 +25,29 @@ let data = {
         {
             id: 2,
             title: "В списке",
-            inBoard: "board0",
+            inBoard: "board1",
         },
     ],
 };
 
-export { data };
+const getData = () => {
+    return { ...data };
+};
+
+const setData = (newData) => {
+    switch (newData.type) {
+        case "dropTask":
+            Object.values(data.tasks).map((item) => {
+                if (item.id == newData.taskId) {
+                    item.inBoard = newData.boardId;
+                    return;
+                }
+            });
+
+        default:
+            console.log("drop-data", data);
+            return;
+    }
+};
+
+export { getData, setData };

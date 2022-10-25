@@ -1,23 +1,28 @@
 const boardsView = (boardsList) => {
-    let boards = boardsList.boards;
+    if (boardsList.length == 0) return;
 
-    if (boards.length == 0) return;
-
-    boards.forEach((item) => {
+    function renderComponent({ title, id }) {
         let div = document.createElement("div");
         div.classList.add("board");
 
-        let title = document.createElement("h3");
-        title.classList.add("board-title");
-        title.textContent = item.title;
+        let h3 = document.createElement("h3");
+        h3.classList.add("board-title");
+        h3.textContent = title;
 
         let content = document.createElement("div");
         content.classList.add("board-content");
-        content.setAttribute("id", `board${item.id}`);
+        content.setAttribute("id", `board${id}`);
 
-        div.append(title);
+        div.append(h3);
         div.append(content);
-        document.querySelector(".wrapper").append(div);
+
+        return div;
+    }
+
+    boardsList.forEach((item) => {
+        let component = renderComponent(item);
+
+        document.querySelector(".boards-wrapper").append(component);
     });
 };
 
