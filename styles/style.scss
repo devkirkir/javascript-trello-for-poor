@@ -19,6 +19,7 @@
         flex-direction: column;
         width: 350px;
         max-height: 600px;
+        background-color: #ecedef;
         border-radius: 10px;
         border: 1px solid #eee;
         box-shadow: 0 5px 5px #ccc;
@@ -30,6 +31,7 @@
         }
 
         .board-title {
+            font-size: 20px;
             color: #323a42;
             margin: 20px;
         }
@@ -37,8 +39,8 @@
         .board-content {
             height: 100%;
             min-height: 150px;
-            background-color: #ecedef;
             border: 3px dashed transparent;
+            border-radius: 10px;
             padding: 10px;
             transition: border 0.15s linear;
 
@@ -72,7 +74,7 @@
                     width: 20px;
                     height: 20px;
                     background-color: transparent;
-                    background-image: url("../img/close.svg");
+                    background-image: url("../img/cross.svg");
                     background-position: center center;
                     border: none;
                     cursor: pointer;
@@ -81,6 +83,33 @@
 
             &--hover {
                 border-color: #ccc;
+            }
+        }
+
+        .board-button-new-task {
+            width: 100%;
+            color: #706f80;
+            font-size: 18px;
+            background-color: transparent;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            padding: 10px 0;
+            transition: background 0.2s linear;
+            cursor: pointer;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                vertical-align: baseline;
+                width: 18px;
+                height: 18px;
+                background-image: url("../img/plus.svg");
+                background-size: contain;
+                margin: 0 10px -2px 0;
+            }
+
+            &:hover {
+                background-color: #ddd;
             }
         }
     }

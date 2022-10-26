@@ -24,7 +24,7 @@ const boardsView = (boardsList) => {
             {
                 tagName: "button",
                 props: {
-                    class: "button",
+                    class: "board-button-new-task",
                     text: "Add New Task",
                 },
             },
