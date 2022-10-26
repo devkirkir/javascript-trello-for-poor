@@ -29,8 +29,9 @@ const renderTask = (skeleton, item) => {
                     nodeChild.textContent = title;
                     break;
                 default:
-                    return;
+                    break;
             }
+
             node.append(nodeChild);
         });
     });

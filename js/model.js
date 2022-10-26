@@ -46,10 +46,25 @@ const setData = (newData) => {
                     return;
                 }
             });
+            break;
+
+        case "deleteTask":
+            let newTaskList = [];
+
+            Object.values(data.tasks).map((item) => {
+                if (item.id == newData.taskId) return;
+                newTaskList.push(item);
+            });
+
+            data = {
+                ...data,
+                tasks: newTaskList,
+                tasksCount: --data.tasks.length,
+            };
 
         default:
-            console.log("drop-data", data);
-            return;
+            console.log("data", data);
+            break;
     }
 };
 

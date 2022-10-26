@@ -1,6 +1,6 @@
 import updateModel from "./updateModel.js";
 
-const handleBoardContent = (boardsContent) => {
+const dragBoardContent = (boardsContent) => {
     let boardsContentsList = document.querySelectorAll(boardsContent);
 
     boardsContentsList.forEach((item) => {
@@ -35,4 +35,4 @@ const handleBoardContent = (boardsContent) => {
     });
 };
 
-export default handleBoardContent;
+export default dragBoardContent;

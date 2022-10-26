@@ -43,6 +43,7 @@
             transition: border 0.15s linear;
 
             .task {
+                position: relative;
                 height: auto;
                 background-color: #fff;
                 border-radius: 3px;
@@ -62,6 +63,19 @@
                     color: #323a42;
                     font-size: 18px;
                     margin: 12px 0;
+                }
+
+                .task-btn-delete {
+                    position: absolute;
+                    top: 17px;
+                    right: 10px;
+                    width: 20px;
+                    height: 20px;
+                    background-color: transparent;
+                    background-image: url("../img/close.svg");
+                    background-position: center center;
+                    border: none;
+                    cursor: pointer;
                 }
             }
 

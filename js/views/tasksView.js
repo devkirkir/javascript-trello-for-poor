@@ -9,6 +9,12 @@ const tasksView = (taskList) => {
         },
         childrens: [
             {
+                tagName: "button",
+                props: {
+                    class: "task-btn-delete",
+                },
+            },
+            {
                 tagName: "span",
                 props: {
                     class: "task-tag",
