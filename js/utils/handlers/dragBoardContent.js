@@ -1,4 +1,4 @@
-import updateModel from "./updateModel.js";
+import updateModel from "../updateModel.js";
 
 const dragBoardContent = (boardsContent) => {
     let boardsContentsList = document.querySelectorAll(boardsContent);

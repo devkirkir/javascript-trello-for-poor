@@ -1,7 +1,7 @@
 import * as Model from "./model.js";
 
-import dragBoardContent from "./utils/dragBoardContent.js";
-import deleteTask from "./utils/deleteTask.js";
+import dragBoardContent from "./utils/handlers/dragBoardContent.js";
+import deleteTask from "./utils/handlers/deleteTask.js";
 
 import boardsView from "./views/boardsView.js";
 import tasksView from "./views/tasksView.js";

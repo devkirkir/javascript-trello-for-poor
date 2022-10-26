@@ -1,4 +1,4 @@
-import updateModel from "./updateModel.js";
+import updateModel from "../updateModel.js";
 
 const deleteTask = (selector) => {
     let deleteBtns = document.querySelectorAll(selector);

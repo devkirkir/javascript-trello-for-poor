@@ -1,9 +1,12 @@
-const renderTask = (skeleton, item) => {
+const renderTask = (item, skeleton, type) => {
     const { tagName, props, childrens } = skeleton,
         { id, title, tags } = item;
 
     let node = document.createElement(tagName);
-    node.setAttribute("data-task", `task${id}`);
+
+    if (type == "task") {
+        node.setAttribute("data-task", `task${id}`);
+    }
 
     Object.entries(props).forEach(([key, value]) => {
         node.setAttribute(key, value);
@@ -14,9 +17,15 @@ const renderTask = (skeleton, item) => {
         let nodeChild = document.createElement(tagName);
 
         Object.entries(props).forEach(([key, value]) => {
-            nodeChild.setAttribute(key, value);
+            if (key !== "text") nodeChild.setAttribute(key, value);
 
             switch (value) {
+                case "board-title":
+                    nodeChild.textContent = title;
+                    break;
+                case "board-content":
+                    nodeChild.setAttribute("id", `board${id}`);
+                    break;
                 case "task-tag":
                     tags.forEach((tag) => {
                         nodeChild = document.createElement(tagName);
@@ -30,6 +39,11 @@ const renderTask = (skeleton, item) => {
                     break;
                 default:
                     break;
+            }
+
+            switch (key) {
+                case "text":
+                    nodeChild.textContent = value;
             }
 
             node.append(nodeChild);

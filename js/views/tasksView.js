@@ -1,7 +1,7 @@
-import renderTask from "../utils/renderTask.js";
+import renderComponents from "../utils/renderComponents.js";
 
 const tasksView = (taskList) => {
-    let taskSkeleton = {
+    const taskSkeleton = {
         tagName: "div",
         props: {
             class: "task",
@@ -30,7 +30,7 @@ const tasksView = (taskList) => {
     };
 
     taskList.forEach((item) => {
-        let component = renderTask(taskSkeleton, item);
+        let component = renderComponents(item, taskSkeleton, "task");
 
         component.addEventListener("dragstart", (event) => {
             let dataAttr = event.target.getAttribute("data-task");
