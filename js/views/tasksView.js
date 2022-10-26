@@ -1,20 +1,34 @@
+import renderTask from "../utils/renderTask.js";
+
 const tasksView = (taskList) => {
-    function renderComponent({ id, title }) {
-        let div = document.createElement("div");
-
-        div.setAttribute("data-task", `task${id}`);
-        div.setAttribute("draggable", true);
-        div.classList.add("task");
-        div.textContent = title;
-
-        return div;
-    }
+    let taskSkeleton = {
+        tagName: "div",
+        props: {
+            class: "task",
+            draggable: true,
+        },
+        childrens: [
+            {
+                tagName: "span",
+                props: {
+                    class: "task-tag",
+                },
+            },
+            {
+                tagName: "h4",
+                props: {
+                    class: "task-title",
+                },
+            },
+        ],
+    };
 
     taskList.forEach((item) => {
-        let component = renderComponent(item);
+        let component = renderTask(taskSkeleton, item);
 
         component.addEventListener("dragstart", (event) => {
             let dataAttr = event.target.getAttribute("data-task");
+
             event.dataTransfer.setData("data", dataAttr);
             event.dataTransfer.setData("id", item.id);
         });

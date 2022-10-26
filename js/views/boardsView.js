@@ -1,7 +1,7 @@
 const boardsView = (boardsList) => {
     if (boardsList.length == 0) return;
 
-    function renderComponent({ title, id }) {
+    function renderBoard({ title, id }) {
         let div = document.createElement("div");
         div.classList.add("board");
 
@@ -20,7 +20,7 @@ const boardsView = (boardsList) => {
     }
 
     boardsList.forEach((item) => {
-        let component = renderComponent(item);
+        let component = renderBoard(item);
 
         document.querySelector(".boards-wrapper").append(component);
     });

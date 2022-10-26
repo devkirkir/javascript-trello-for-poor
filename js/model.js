@@ -1,6 +1,8 @@
 "use strict";
 
 let data = {
+    tasksCount: 2,
+    boardsCount: 3,
     boards: [
         {
             id: 1,
@@ -15,16 +17,17 @@ let data = {
             title: "Done",
         },
     ],
-    tasksCount: 2,
     tasks: [
         {
             id: 1,
             title: "Прогресс",
-            inBoard: "board1",
+            tags: ["Привет", "Как дела"],
+            inBoard: "board2",
         },
         {
             id: 2,
             title: "В списке",
+            tags: ["hi"],
             inBoard: "board1",
         },
     ],

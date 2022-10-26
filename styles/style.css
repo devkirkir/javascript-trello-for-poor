@@ -3,39 +3,61 @@
   font-family: "Montserrat", sans-serif;
   font-size: 100%;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .boards-wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 .boards-wrapper .board {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 350px;
   max-height: 600px;
-  padding: 5px 10px;
   border-radius: 10px;
   border: 1px solid #eee;
   box-shadow: 0 5px 5px #ccc;
+  padding: 5px 0 0;
+  margin-right: 40px;
+}
+.boards-wrapper .board:last-child {
+  margin-right: 0;
 }
 .boards-wrapper .board .board-title {
-  color: #000;
+  color: #323a42;
+  margin: 20px;
 }
 .boards-wrapper .board .board-content {
   height: 100%;
   min-height: 150px;
-  background-color: #fff;
+  background-color: #ecedef;
   border: 3px dashed transparent;
-  padding: 5px;
+  padding: 10px;
   transition: border 0.15s linear;
 }
 .boards-wrapper .board .board-content .task {
-  height: 100px;
-  border: 1px solid black;
+  height: auto;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px #ccc;
+  padding: 20px 10px;
   margin: 10px 0;
+}
+.boards-wrapper .board .board-content .task .task-tag {
+  color: #fff;
+  background-color: green;
+  border-radius: 3px;
+  padding: 3px;
+  margin-right: 7px;
+}
+.boards-wrapper .board .board-content .task .task-title {
+  color: #323a42;
+  font-size: 18px;
+  margin: 12px 0;
 }
 .boards-wrapper .board .board-content--hover {
   border-color: #ccc;
