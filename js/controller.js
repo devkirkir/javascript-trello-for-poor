@@ -17,23 +17,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("updateModel", (event) => {
         Model.setData(event.detail);
-        console.log("render");
 
-        // const { boards, tasks } = Model.getData();
+        const { boards, tasks } = Model.getData();
 
-        // if (event.detail.type === "dropTask") {
-        //     let renderedTasks = document.querySelectorAll(".task");
+        if (
+            event.detail.type === "dropTask" ||
+            event.detail.type === "deleteTask" ||
+            event.detail.type === "addTask"
+        ) {
+            let renderedTasks = document.querySelectorAll(".task");
 
-        //     renderedTasks.forEach((task) => {
-        //         task.remove();
-        //     });
+            renderedTasks.forEach((task) => {
+                task.remove();
+            });
 
-        //     console.log("render", tasks);
+            tasksView(tasks);
 
-        //     tasksView(tasks);
-        // }
+            deleteTask(".task-btn-delete");
 
-        // dragBoardContent(".board-content");
-        // deleteTask(".task-btn-delete");
+            return;
+        }
     });
 });

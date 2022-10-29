@@ -24,7 +24,7 @@ const dragBoardContent = (boardsContent) => {
             let boardId = item.getAttribute("id"),
                 taskId = event.dataTransfer.getData("id");
 
-            item.append(dragElem);
+            // item.append(dragElem);
 
             updateModel(dragElem, {
                 type: "dropTask",

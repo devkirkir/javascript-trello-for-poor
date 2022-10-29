@@ -9,7 +9,7 @@ const addTask = (elem) => {
     updateModel(board, {
         type: "addTask",
         id: 5,
-        title: "Новое",
+        title: "Введите название задачи",
         tags: [],
         inBoard: boardId,
     });

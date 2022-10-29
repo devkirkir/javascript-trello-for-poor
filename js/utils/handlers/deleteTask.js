@@ -13,7 +13,7 @@ const deleteTask = (selector) => {
                 taskId,
             });
 
-            task.remove();
+            // task.remove();
         });
     });
 };

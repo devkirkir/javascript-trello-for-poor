@@ -30,6 +30,8 @@ const renderComponent = (item, skeleton, type) => {
                     nodeChild.setAttribute("data-board", `board${id}`);
                     break;
                 case "task-tag":
+                    if (tags.length == 0) return;
+
                     tags.forEach((tag) => {
                         nodeChild = document.createElement(tagName);
                         nodeChild.setAttribute(key, value);
