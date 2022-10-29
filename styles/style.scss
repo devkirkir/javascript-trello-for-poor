@@ -17,7 +17,7 @@
     .board {
         display: flex;
         flex-direction: column;
-        width: 350px;
+        width: 300px;
         max-height: 600px;
         background-color: #ecedef;
         border-radius: 10px;
@@ -31,9 +31,9 @@
         }
 
         .board-title {
-            font-size: 20px;
+            font-size: 16px;
             color: #323a42;
-            margin: 20px;
+            margin: 15px;
         }
 
         .board-content {
@@ -41,7 +41,7 @@
             min-height: 150px;
             border: 3px dashed transparent;
             border-radius: 10px;
-            padding: 10px;
+            padding: 8px;
             transition: border 0.15s linear;
 
             .task {
@@ -55,6 +55,7 @@
 
                 .task-tag {
                     color: #fff;
+                    font-size: 12px;
                     background-color: green;
                     border-radius: 3px;
                     padding: 3px;
@@ -62,17 +63,43 @@
                 }
 
                 .task-title {
+                    width: 100%;
+                    display: inline-block;
                     color: #323a42;
-                    font-size: 18px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    padding: 8px 4px;
                     margin: 12px 0;
+                    transition: 0.2s ease-in;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #eee;
+                    }
+                }
+
+                .task-input {
+                    display: block;
+                    width: 100%;
+                    color: #323a42;
+                    font-weight: 700;
+                    outline: none;
+                    border-radius: 5px;
+                    border: none;
+                    padding: 8px 4px;
+                    margin: 12px 0;
+
+                    &:focus {
+                        background-color: #eee;
+                    }
                 }
 
                 .task-btn-delete {
                     position: absolute;
-                    top: 17px;
+                    top: 20px;
                     right: 10px;
-                    width: 20px;
-                    height: 20px;
+                    width: 14px;
+                    height: 14px;
                     background-color: transparent;
                     background-image: url("../img/cross.svg");
                     background-position: center center;
@@ -89,7 +116,7 @@
         .board-button-new-task {
             width: 100%;
             color: #706f80;
-            font-size: 18px;
+            font-size: 14px;
             background-color: transparent;
             border: none;
             border-radius: 0 0 8px 8px;
@@ -101,8 +128,8 @@
                 content: "";
                 display: inline-block;
                 vertical-align: baseline;
-                width: 18px;
-                height: 18px;
+                width: 14px;
+                height: 14px;
                 background-image: url("../img/plus.svg");
                 background-size: contain;
                 margin: 0 10px -2px 0;

@@ -32,11 +32,11 @@ const tasksView = (taskList) => {
     taskList.forEach((item) => {
         let component = renderComponents(item, taskSkeleton, "task");
 
-        component.addEventListener("dragstart", (event) => {
-            let dataAttr = event.target.getAttribute("data-task");
+        component.addEventListener("dragstart", (e) => {
+            let dataAttr = e.target.getAttribute("data-task");
 
-            event.dataTransfer.setData("data", dataAttr);
-            event.dataTransfer.setData("id", item.id);
+            e.dataTransfer.setData("data", dataAttr);
+            e.dataTransfer.setData("id", item.id);
         });
 
         document.getElementById(item.inBoard).appendChild(component);

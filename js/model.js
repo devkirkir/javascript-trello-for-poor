@@ -78,6 +78,14 @@ const setData = (newData) => {
             };
             break;
 
+        case "changeTitle":
+            Object.values(data.tasks).map((item) => {
+                if (item.id == newData.taskId) {
+                    item.title = newData.title;
+                    return;
+                }
+            });
+
         default:
             console.log("data", data);
             break;

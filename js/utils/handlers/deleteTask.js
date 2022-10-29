@@ -4,8 +4,8 @@ const deleteTask = (selector) => {
     let deleteBtns = document.querySelectorAll(selector);
 
     deleteBtns.forEach((item) => {
-        item.addEventListener("click", (event) => {
-            let task = event.target.parentNode,
+        item.addEventListener("click", (e) => {
+            let task = e.target.parentNode,
                 taskId = task.getAttribute("data-task").slice(4);
 
             updateModel(item, {

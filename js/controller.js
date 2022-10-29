@@ -15,15 +15,15 @@ window.addEventListener("DOMContentLoaded", () => {
     dragBoardContent(".board-content");
     deleteTask(".task-btn-delete");
 
-    document.addEventListener("updateModel", (event) => {
-        Model.setData(event.detail);
+    document.addEventListener("updateModel", (e) => {
+        Model.setData(e.detail);
 
         const { boards, tasks } = Model.getData();
 
         if (
-            event.detail.type === "dropTask" ||
-            event.detail.type === "deleteTask" ||
-            event.detail.type === "addTask"
+            e.detail.type === "dropTask" ||
+            e.detail.type === "deleteTask" ||
+            e.detail.type === "addTask"
         ) {
             let renderedTasks = document.querySelectorAll(".task");
 

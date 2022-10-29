@@ -1,4 +1,3 @@
-import renderComponent from "../renderComponents.js";
 import updateModel from "../updateModel.js";
 
 import { getData } from "../../model.js";
@@ -10,12 +9,12 @@ const addTask = (elem) => {
 
     let { tasks } = getData();
 
-    function getRandomId() {
+    function generateId() {
         let ids = new Set();
 
         let curr = 1;
 
-        tasks.forEach((item, index) => {
+        tasks.forEach((item) => {
             ids.add(item.id);
         });
 
@@ -32,7 +31,7 @@ const addTask = (elem) => {
 
     updateModel(board, {
         type: "addTask",
-        id: getRandomId(),
+        id: generateId(),
         title: "Введите название задачи",
         tags: [],
         inBoard: boardId,

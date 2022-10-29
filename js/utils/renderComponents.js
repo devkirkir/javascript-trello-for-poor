@@ -1,3 +1,5 @@
+import changeTaskTitle from "./handlers/changeTaskTitle.js";
+
 const renderComponent = (item, skeleton, type) => {
     const { tagName, props, childrens } = skeleton,
         { id, title, tags } = item;
@@ -41,6 +43,9 @@ const renderComponent = (item, skeleton, type) => {
                     break;
                 case "task-title":
                     nodeChild.textContent = title;
+                    nodeChild.addEventListener("click", (e) =>
+                        changeTaskTitle(e.target)
+                    );
                     break;
                 default:
                     break;
