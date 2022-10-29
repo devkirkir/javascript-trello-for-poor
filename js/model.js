@@ -19,13 +19,13 @@ let data = {
     ],
     tasks: [
         {
-            id: 1,
+            id: 3,
             title: "Прогресс",
             tags: ["Привет", "Как дела"],
             inBoard: "board2",
         },
         {
-            id: 2,
+            id: 5,
             title: "В списке",
             tags: ["hi"],
             inBoard: "board1",
@@ -74,7 +74,9 @@ const setData = (newData) => {
             data = {
                 ...data,
                 tasks: [...data.tasks, newTask],
+                tasksCount: ++data.tasks.length,
             };
+            break;
 
         default:
             console.log("data", data);
