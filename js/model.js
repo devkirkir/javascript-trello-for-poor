@@ -61,6 +61,20 @@ const setData = (newData) => {
                 tasks: newTaskList,
                 tasksCount: --data.tasks.length,
             };
+            break;
+
+        case "addTask":
+            let newTask = {
+                id: newData.id,
+                title: newData.title,
+                tags: newData.tags,
+                inBoard: newData.inBoard,
+            };
+
+            data = {
+                ...data,
+                tasks: [...data.tasks, newTask],
+            };
 
         default:
             console.log("data", data);

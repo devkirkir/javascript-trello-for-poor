@@ -17,5 +17,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("updateModel", (event) => {
         Model.setData(event.detail);
+        console.log("render");
+
+        // const { boards, tasks } = Model.getData();
+
+        // if (event.detail.type === "dropTask") {
+        //     let renderedTasks = document.querySelectorAll(".task");
+
+        //     renderedTasks.forEach((task) => {
+        //         task.remove();
+        //     });
+
+        //     console.log("render", tasks);
+
+        //     tasksView(tasks);
+        // }
+
+        // dragBoardContent(".board-content");
+        // deleteTask(".task-btn-delete");
     });
 });

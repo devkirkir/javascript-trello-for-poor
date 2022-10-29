@@ -1,4 +1,4 @@
-const renderTask = (item, skeleton, type) => {
+const renderComponent = (item, skeleton, type) => {
     const { tagName, props, childrens } = skeleton,
         { id, title, tags } = item;
 
@@ -25,6 +25,9 @@ const renderTask = (item, skeleton, type) => {
                     break;
                 case "board-content":
                     nodeChild.setAttribute("id", `board${id}`);
+                    break;
+                case "board-button-new-task":
+                    nodeChild.setAttribute("data-board", `board${id}`);
                     break;
                 case "task-tag":
                     tags.forEach((tag) => {
@@ -53,4 +56,4 @@ const renderTask = (item, skeleton, type) => {
     return node;
 };
 
-export default renderTask;
+export default renderComponent;
