@@ -31,7 +31,7 @@ const addTask = (elem) => {
     updateModel(board, {
         type: "addTask",
         id: generateId(),
-        title: "Введите название задачи",
+        title: "Enter title...",
         tag: "Untagged",
         tagColor: "#bbb",
         inBoard: boardId,

@@ -12,10 +12,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-left: 30px;
 }
 .boards-wrapper .board {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   width: 300px;
   max-height: 600px;
   background-color: #ecedef;
@@ -29,9 +31,32 @@
   margin-right: 0;
 }
 .boards-wrapper .board .board-title {
+  display: inline-block;
   font-size: 16px;
   color: #323a42;
-  margin: 15px;
+  border-radius: 6px;
+  padding: 8px 4px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background 0.15s linear;
+}
+.boards-wrapper .board .board-title:hover {
+  background-color: #ccc;
+}
+.boards-wrapper .board .board-title-input {
+  display: block;
+  max-height: 200px;
+  color: #323a42;
+  font-weight: 700;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 4px;
+  margin: 10px;
+  resize: vertical;
+}
+.boards-wrapper .board .board-title-input:focus {
+  background-color: #ccc;
 }
 .boards-wrapper .board .board-content {
   height: 100%;

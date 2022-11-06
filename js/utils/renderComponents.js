@@ -1,3 +1,4 @@
+import changeBoardTitle from "./handlers/changeBoardTitle.js";
 import changeTag from "./handlers/changeTag.js";
 import changeTaskTitle from "./handlers/changeTaskTitle.js";
 
@@ -9,6 +10,10 @@ const renderComponent = (item, skeleton, type) => {
 
     if (type == "task") {
         node.setAttribute("data-task", `task${id}`);
+    }
+
+    if (type == "board") {
+        node.setAttribute("board-id", id);
     }
 
     Object.entries(props).forEach(([key, value]) => {
@@ -25,6 +30,9 @@ const renderComponent = (item, skeleton, type) => {
             switch (value) {
                 case "board-title":
                     nodeChild.textContent = title;
+                    nodeChild.addEventListener("click", (e) =>
+                        changeBoardTitle(e.target)
+                    );
                     break;
                 case "board-content":
                     nodeChild.setAttribute("id", `board${id}`);

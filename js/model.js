@@ -112,7 +112,14 @@ const setData = (newData) => {
                     return;
                 }
             });
-
+            break;
+        case "changeBoardTitle":
+            Object.values(data.boards).map((item) => {
+                if (item.id == newData.boardId) {
+                    item.title = newData.title;
+                    return;
+                }
+            });
         default:
             console.log("data", data);
             break;
