@@ -3,11 +3,15 @@
 let data = {
     tags: [
         {
+            name: "Untagged",
+            color: "#bbb",
+        },
+        {
             name: "Design",
             color: "#E74F3A",
         },
         {
-            name: "Develop",
+            name: "Development",
             color: "#0063A5",
         },
     ],
@@ -30,14 +34,14 @@ let data = {
     tasks: [
         {
             id: 3,
-            title: "Прогресс",
-            tag: "Develop",
+            title: "Doing...",
+            tag: "Development",
             tagColor: "#0063A5",
             inBoard: "board2",
         },
         {
             id: 5,
-            title: "В списке",
+            title: "In to do...",
             tag: "Design",
             tagColor: "#E74F3A",
             inBoard: "board1",
@@ -79,7 +83,8 @@ const setData = (newData) => {
             let newTask = {
                 id: newData.id,
                 title: newData.title,
-                tags: newData.tags,
+                tag: newData.tag,
+                tagColor: newData.tagColor,
                 inBoard: newData.inBoard,
             };
 

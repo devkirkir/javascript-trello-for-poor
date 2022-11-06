@@ -3,7 +3,6 @@ import updateModel from "../updateModel.js";
 import { getData } from "../../model.js";
 
 const addTask = (elem) => {
-    // let task = document.querySelector(elem);
     let boardId = elem.getAttribute("data-board"),
         board = document.getElementById(boardId);
 
@@ -33,7 +32,8 @@ const addTask = (elem) => {
         type: "addTask",
         id: generateId(),
         title: "Введите название задачи",
-        tags: [],
+        tag: "Untagged",
+        tagColor: "#bbb",
         inBoard: boardId,
     });
 };

@@ -1,23 +1,23 @@
 import updateModel from "../updateModel.js";
 
 const changeTaskTitle = (target) => {
-    let input = document.createElement("input"),
+    let textarea = document.createElement("textarea"),
         taskId = target.parentNode.getAttribute("data-task").slice(4);
 
-    input.classList.add("task-input");
-    input.value = target.textContent;
+    textarea.classList.add("task-textarea");
+    textarea.value = target.textContent;
 
     target.style.display = "none";
 
-    target.parentNode.append(input);
-    input.focus();
+    target.parentNode.append(textarea);
+    textarea.focus();
 
-    input.addEventListener("input", () => {
-        target.textContent = input.value;
+    textarea.addEventListener("input", () => {
+        target.textContent = textarea.value;
 
-        updateModel(input, {
+        updateModel(textarea, {
             type: "changeTitle",
-            title: input.value,
+            title: textarea.value,
             taskId,
         });
     });
@@ -29,9 +29,9 @@ const changeTaskTitle = (target) => {
     //     }
     // });
 
-    input.addEventListener("focusout", () => {
+    textarea.addEventListener("focusout", () => {
         target.style.display = "inline-block";
-        input.remove();
+        textarea.remove();
     });
 };
 
