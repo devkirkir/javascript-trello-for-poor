@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (
             e.detail.type === "dropTask" ||
             e.detail.type === "deleteTask" ||
+            e.detail.type === "changeTag" ||
             e.detail.type === "addTask"
         ) {
             let renderedTasks = document.querySelectorAll(".task");

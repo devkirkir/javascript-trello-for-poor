@@ -1,6 +1,16 @@
 "use strict";
 
 let data = {
+    tags: [
+        {
+            name: "Design",
+            color: "#E74F3A",
+        },
+        {
+            name: "Develop",
+            color: "#0063A5",
+        },
+    ],
     tasksCount: 2,
     boardsCount: 3,
     boards: [
@@ -21,13 +31,15 @@ let data = {
         {
             id: 3,
             title: "Прогресс",
-            tags: ["Привет", "Как дела"],
+            tag: "Develop",
+            tagColor: "#0063A5",
             inBoard: "board2",
         },
         {
             id: 5,
             title: "В списке",
-            tags: ["hi"],
+            tag: "Design",
+            tagColor: "#E74F3A",
             inBoard: "board1",
         },
     ],
@@ -82,6 +94,16 @@ const setData = (newData) => {
             Object.values(data.tasks).map((item) => {
                 if (item.id == newData.taskId) {
                     item.title = newData.title;
+                    return;
+                }
+            });
+            break;
+
+        case "changeTag":
+            Object.values(data.tasks).map((item) => {
+                if (item.id == newData.taskId) {
+                    item.tag = newData.newTag;
+                    item.tagColor = newData.newColor;
                     return;
                 }
             });

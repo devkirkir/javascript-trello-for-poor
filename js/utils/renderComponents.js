@@ -1,8 +1,9 @@
+import changeTag from "./handlers/changeTag.js";
 import changeTaskTitle from "./handlers/changeTaskTitle.js";
 
 const renderComponent = (item, skeleton, type) => {
     const { tagName, props, childrens } = skeleton,
-        { id, title, tags } = item;
+        { id, title, tag, tagColor } = item;
 
     let node = document.createElement(tagName);
 
@@ -32,14 +33,11 @@ const renderComponent = (item, skeleton, type) => {
                     nodeChild.setAttribute("data-board", `board${id}`);
                     break;
                 case "task-tag":
-                    if (tags.length == 0) return;
-
-                    tags.forEach((tag) => {
-                        nodeChild = document.createElement(tagName);
-                        nodeChild.setAttribute(key, value);
-                        nodeChild.textContent = tag;
-                        node.append(nodeChild);
-                    });
+                    nodeChild.textContent = tag;
+                    nodeChild.style.background = tagColor;
+                    nodeChild.addEventListener("click", (e) =>
+                        changeTag(e.target)
+                    );
                     break;
                 case "task-title":
                     nodeChild.textContent = title;
@@ -54,6 +52,7 @@ const renderComponent = (item, skeleton, type) => {
             switch (key) {
                 case "text":
                     nodeChild.textContent = value;
+                    break;
             }
 
             node.append(nodeChild);

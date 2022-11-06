@@ -53,10 +53,30 @@
 .boards-wrapper .board .board-content .task .task-tag {
   color: #fff;
   font-size: 12px;
-  background-color: green;
   border-radius: 3px;
   padding: 3px;
   margin-right: 7px;
+}
+.boards-wrapper .board .board-content .task .options {
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px #ccc;
+}
+.boards-wrapper .board .board-content .task .options ul li {
+  list-style: none;
+  font-size: 14px;
+  color: #fff;
+  padding: 10px 8px;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.boards-wrapper .board .board-content .task .options ul li:hover {
+  background-color: #eee;
 }
 .boards-wrapper .board .board-content .task .task-title {
   width: 100%;
