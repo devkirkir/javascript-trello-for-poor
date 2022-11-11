@@ -19,15 +19,15 @@ let data = {
     boardsCount: 3,
     boards: [
         {
-            id: 1,
+            id: 2,
             title: "To Do",
         },
         {
-            id: 2,
+            id: 3,
             title: "Doing",
         },
         {
-            id: 3,
+            id: 4,
             title: "Done",
         },
     ],
@@ -37,14 +37,14 @@ let data = {
             title: "Doing...",
             tag: "Development",
             tagColor: "#0063A5",
-            inBoard: "board2",
+            inBoard: "board3",
         },
         {
             id: 5,
             title: "In to do...",
             tag: "Design",
             tagColor: "#E74F3A",
-            inBoard: "board1",
+            inBoard: "board2",
         },
     ],
 };
@@ -120,6 +120,19 @@ const setData = (newData) => {
                     return;
                 }
             });
+            break;
+        case "addBoard":
+            let newBoard = {
+                id: newData.id,
+                title: newData.title,
+            };
+
+            data = {
+                ...data,
+                boards: [...data.boards, newBoard],
+                boardsCount: data.boards.length,
+            };
+
         default:
             console.log("data", data);
             break;

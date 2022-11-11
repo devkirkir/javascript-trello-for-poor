@@ -8,6 +8,36 @@
     margin: 0;
 }
 
+header {
+    padding: 20px 30px;
+
+    .add-board-btn {
+        color: #706f80;
+        font-size: 14px;
+        background-color: transparent;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        transition: background 0.2s linear;
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            vertical-align: baseline;
+            width: 14px;
+            height: 14px;
+            background-image: url("../img/plus.svg");
+            background-size: contain;
+            margin: 0 10px -2px 0;
+        }
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}
+
 .boards-wrapper {
     width: 100%;
     display: flex;
@@ -98,6 +128,7 @@
                     background-color: #fff;
                     border-radius: 3px;
                     box-shadow: 0 5px 5px #ccc;
+                    z-index: 2;
 
                     ul {
                         li {

@@ -5,6 +5,7 @@ import deleteTask from "./utils/handlers/deleteTask.js";
 
 import boardsView from "./views/boardsView.js";
 import tasksView from "./views/tasksView.js";
+import addBoard from "./utils/handlers/addBoard.js";
 
 window.addEventListener("DOMContentLoaded", () => {
     const { boards, tasks } = Model.getData();
@@ -15,6 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
     dragBoardContent(".board-content");
     deleteTask(".task-btn-delete");
 
+    addBoard(".add-board-btn");
+
     document.addEventListener("updateModel", (e) => {
         Model.setData(e.detail);
 
@@ -24,17 +27,25 @@ window.addEventListener("DOMContentLoaded", () => {
             e.detail.type === "dropTask" ||
             e.detail.type === "deleteTask" ||
             e.detail.type === "changeTag" ||
+            e.detail.type === "addBoard" ||
             e.detail.type === "addTask"
         ) {
-            let renderedTasks = document.querySelectorAll(".task");
+            let renderedTasks = document.querySelectorAll(".task"),
+                renderedBoards = document.querySelectorAll(".board");
 
             renderedTasks.forEach((task) => {
                 task.remove();
             });
 
+            renderedBoards.forEach((board) => {
+                board.remove();
+            });
+
+            boardsView(boards);
             tasksView(tasks);
 
             deleteTask(".task-btn-delete");
+            dragBoardContent(".board-content");
 
             return;
         }
