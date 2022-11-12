@@ -32,7 +32,7 @@ const addTask = (elem, boardId) => {
         id: generateId(),
         title: "Enter title...",
         tag: "Untagged",
-        tagColor: "#bbb",
+        tagColor: "#bbbbbb",
         inBoard: boardId,
     });
 };

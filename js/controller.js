@@ -6,9 +6,10 @@ import deleteTask from "./utils/handlers/deleteTask.js";
 import boardsView from "./views/boardsView.js";
 import tasksView from "./views/tasksView.js";
 import addBoard from "./utils/handlers/addBoard.js";
+import tagsSettings from "./utils/modals/tagsSettings.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-    const { boards, tasks } = Model.getData();
+    const { boards, tasks, tags } = Model.getData();
 
     boardsView(boards);
     tasksView(tasks);
@@ -17,6 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
     deleteTask(".task-btn-delete");
 
     addBoard(".add-board-btn");
+    tagsSettings(".edit-tags-btn", tags);
 
     document.addEventListener("updateModel", (e) => {
         Model.setData(e.detail);

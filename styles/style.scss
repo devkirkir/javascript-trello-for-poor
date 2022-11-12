@@ -9,9 +9,11 @@
 }
 
 header {
+    position: fixed;
+    top: 0;
     padding: 20px 30px;
 
-    .add-board-btn {
+    .header-btn {
         color: #706f80;
         font-size: 14px;
         background-color: transparent;
@@ -21,6 +23,12 @@ header {
         transition: background 0.2s linear;
         cursor: pointer;
 
+        &:hover {
+            background-color: #eee;
+        }
+    }
+
+    .add-board-btn {
         &:before {
             content: "";
             display: inline-block;
@@ -31,19 +39,14 @@ header {
             background-size: contain;
             margin: 0 10px -2px 0;
         }
-
-        &:hover {
-            background-color: #eee;
-        }
     }
 }
 
 .boards-wrapper {
-    min-width: 100vw;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 30px;
+    margin: 80px 0 0 30px;
 
     .board {
         width: 280px;
@@ -264,5 +267,76 @@ header {
                 background-color: #ddd;
             }
         }
+    }
+}
+
+.tags {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    opacity: 0;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    box-shadow: 0 5px 5px #ccc;
+    transform: translateX(100%);
+    animation: slideOut 0.2s forwards;
+
+    h4 {
+        color: #323a42;
+        font-size: 22px;
+        margin: 20px 12px;
+    }
+
+    .tags-container {
+        margin: 0 12px;
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        .tag-input-text {
+            color: #323a42;
+            background-color: #ddd;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            padding: 8px 6px;
+            margin-right: 5px;
+        }
+
+        .tag-input-color {
+            border: none;
+        }
+    }
+}
+
+.tags-active {
+    animation: slideIn 0.2s forwards;
+    transform: translateX(0);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
     }
 }

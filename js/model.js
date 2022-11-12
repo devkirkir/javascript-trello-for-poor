@@ -4,7 +4,7 @@ let data = {
     tags: [
         {
             name: "Untagged",
-            color: "#bbb",
+            color: "#BBBBBB",
         },
         {
             name: "Design",
@@ -27,7 +27,7 @@ let data = {
             title: "Doing",
         },
         {
-            id: 4,
+            id: 5,
             title: "Done",
         },
     ],
@@ -174,6 +174,44 @@ const setData = (newData) => {
             };
 
             break;
+        case "renameTag":
+            let oldTags = [];
+
+            data.tags.forEach((tag) => {
+                if (tag.name == newData.tag) return;
+
+                oldTags.push(tag);
+            });
+
+            data = {
+                ...data,
+                tags: [
+                    ...oldTags,
+                    { name: newData.value, color: newData.color },
+                ],
+            };
+
+            break;
+
+        // case "changeTagColor":
+        //     let oldColorTags = [];
+
+        //     data.tags.forEach((tag) => {
+        //         if (tag.color == newData.color) return;
+
+        //         oldColorTags.push(tag);
+        //     });
+
+        //     console.log(oldColorTags);
+
+        //     data = {
+        //         ...data,
+        //         tags: [
+        //             ...oldColorTags,
+        //             { name: newData.value, color: newData.color },
+        //         ],
+        //     };
+        //     break;
 
         default:
             console.log("data", data);
