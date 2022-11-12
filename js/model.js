@@ -37,14 +37,14 @@ let data = {
             title: "Doing...",
             tag: "Development",
             tagColor: "#0063A5",
-            inBoard: "board3",
+            inBoard: 3,
         },
         {
             id: 5,
             title: "In to do...",
             tag: "Design",
             tagColor: "#E74F3A",
-            inBoard: "board2",
+            inBoard: 2,
         },
     ],
 };
@@ -62,6 +62,7 @@ const setData = (newData) => {
                     return;
                 }
             });
+
             break;
 
         case "deleteTask":
@@ -77,6 +78,7 @@ const setData = (newData) => {
                 tasks: newTaskList,
                 tasksCount: --data.tasks.length,
             };
+
             break;
 
         case "addTask":
@@ -93,6 +95,7 @@ const setData = (newData) => {
                 tasks: [...data.tasks, newTask],
                 tasksCount: ++data.tasks.length,
             };
+
             break;
 
         case "changeTitle":
@@ -102,6 +105,7 @@ const setData = (newData) => {
                     return;
                 }
             });
+
             break;
 
         case "changeTag":
@@ -112,7 +116,9 @@ const setData = (newData) => {
                     return;
                 }
             });
+
             break;
+
         case "changeBoardTitle":
             Object.values(data.boards).map((item) => {
                 if (item.id == newData.boardId) {
@@ -120,7 +126,9 @@ const setData = (newData) => {
                     return;
                 }
             });
+
             break;
+
         case "addBoard":
             let newBoard = {
                 id: newData.id,
@@ -130,11 +138,46 @@ const setData = (newData) => {
             data = {
                 ...data,
                 boards: [...data.boards, newBoard],
-                boardsCount: data.boards.length,
+                boardsCount: ++data.boards.length,
             };
+
+            break;
+
+        case "deleteBoard":
+            let newBoardsList = [],
+                newTasksList = [],
+                idsIndex = 0;
+
+            Object.values(data.boards).map((board) => {
+                if (board.id == newData.boardId) return;
+                newBoardsList.push(board);
+            });
+
+            if (newData.tasksIds.length > 0) {
+                Object.values(data.tasks).map((task) => {
+                    if (task.id == newData.tasksIds[idsIndex]) {
+                        idsIndex++;
+                        return;
+                    }
+                    newTasksList.push(task);
+                });
+            } else {
+                newTasksList = data.tasks;
+            }
+
+            data = {
+                ...data,
+                boards: newBoardsList,
+                tasks: newTasksList,
+                boardsCount: --data.boards.length,
+                tasksCount: data.tasks.length,
+            };
+
+            break;
 
         default:
             console.log("data", data);
+
             break;
     }
 };

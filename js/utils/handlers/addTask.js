@@ -2,9 +2,8 @@ import updateModel from "../updateModel.js";
 
 import { getData } from "../../model.js";
 
-const addTask = (elem) => {
-    let boardId = elem.getAttribute("data-board"),
-        board = document.getElementById(boardId);
+const addTask = (elem, boardId) => {
+    let board = document.querySelector(`[canvas-board-id="${boardId}"]`);
 
     let { tasks } = getData();
 

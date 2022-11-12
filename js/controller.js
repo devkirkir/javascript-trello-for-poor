@@ -24,11 +24,12 @@ window.addEventListener("DOMContentLoaded", () => {
         const { boards, tasks } = Model.getData();
 
         if (
+            e.detail.type === "addTask" ||
             e.detail.type === "dropTask" ||
             e.detail.type === "deleteTask" ||
             e.detail.type === "changeTag" ||
             e.detail.type === "addBoard" ||
-            e.detail.type === "addTask"
+            e.detail.type === "deleteBoard"
         ) {
             let renderedTasks = document.querySelectorAll(".task"),
                 renderedBoards = document.querySelectorAll(".board");

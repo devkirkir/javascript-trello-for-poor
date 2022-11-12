@@ -18,13 +18,11 @@ const dragBoardContent = (boardsContent) => {
             item.classList.remove("board-content--hover");
 
             let dragElem = document.querySelector(
-                `[data-task=${e.dataTransfer.getData("data")}]`
+                `[task-id="${e.dataTransfer.getData("data")}"]`
             );
 
-            let boardId = item.getAttribute("id"),
+            let boardId = item.getAttribute("canvas-board-id"),
                 taskId = e.dataTransfer.getData("id");
-
-            // item.append(dragElem);
 
             updateModel(dragElem, {
                 type: "dropTask",

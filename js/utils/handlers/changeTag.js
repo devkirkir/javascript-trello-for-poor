@@ -1,13 +1,12 @@
 import updateModel from "../updateModel.js";
 import * as Model from "./../../model.js";
 
-const changeTag = (target) => {
+const changeTag = (target, taskId) => {
     if (document.querySelector(".options")) return;
 
     const optionsContainer = document.createElement("div"),
         ul = document.createElement("ul"),
-        task = target.parentNode,
-        taskId = task.getAttribute("data-task").slice(4);
+        task = target.parentNode;
 
     const tagsList = Model.getData().tags;
 

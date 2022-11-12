@@ -1,8 +1,7 @@
 import updateModel from "../updateModel.js";
 
-const changeTaskTitle = (target) => {
-    let textarea = document.createElement("textarea"),
-        taskId = target.parentNode.getAttribute("data-task").slice(4);
+const changeTaskTitle = (target, taskId) => {
+    let textarea = document.createElement("textarea");
 
     textarea.classList.add("task-textarea");
     textarea.value = target.textContent;

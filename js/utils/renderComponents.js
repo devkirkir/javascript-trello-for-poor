@@ -1,6 +1,8 @@
+import addTask from "./handlers/addTask.js";
 import changeBoardTitle from "./handlers/changeBoardTitle.js";
 import changeTag from "./handlers/changeTag.js";
 import changeTaskTitle from "./handlers/changeTaskTitle.js";
+import deleteBoard from "./handlers/deleteBoard.js";
 
 const renderComponent = (item, skeleton, type) => {
     const { tagName, props, childrens } = skeleton,
@@ -9,7 +11,7 @@ const renderComponent = (item, skeleton, type) => {
     let node = document.createElement(tagName);
 
     if (type == "task") {
-        node.setAttribute("data-task", `task${id}`);
+        node.setAttribute("task-id", `${id}`);
     }
 
     if (type == "board") {
@@ -31,26 +33,34 @@ const renderComponent = (item, skeleton, type) => {
                 case "board-title":
                     nodeChild.textContent = title;
                     nodeChild.addEventListener("click", (e) =>
-                        changeBoardTitle(e.target)
+                        changeBoardTitle(e.target, id)
+                    );
+                    break;
+                case "board-delete-btn":
+                    nodeChild.addEventListener("click", (e) =>
+                        deleteBoard(e.target, id)
                     );
                     break;
                 case "board-content":
-                    nodeChild.setAttribute("id", `board${id}`);
+                    nodeChild.setAttribute("canvas-board-id", `${id}`);
                     break;
                 case "board-button-new-task":
-                    nodeChild.setAttribute("data-board", `board${id}`);
+                    nodeChild.setAttribute("btn-board-id", `${id}`);
+                    nodeChild.addEventListener("click", (e) =>
+                        addTask(e.target, id)
+                    );
                     break;
                 case "task-tag":
                     nodeChild.textContent = tag;
                     nodeChild.style.background = tagColor;
                     nodeChild.addEventListener("click", (e) =>
-                        changeTag(e.target)
+                        changeTag(e.target, id)
                     );
                     break;
                 case "task-title":
                     nodeChild.textContent = title;
                     nodeChild.addEventListener("click", (e) =>
-                        changeTaskTitle(e.target)
+                        changeTaskTitle(e.target, id)
                     );
                     break;
                 default:
@@ -66,7 +76,6 @@ const renderComponent = (item, skeleton, type) => {
             node.append(nodeChild);
         });
     });
-
     return node;
 };
 

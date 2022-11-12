@@ -35,18 +35,15 @@ header .add-board-btn:hover {
 }
 
 .boards-wrapper {
-  width: 100%;
+  min-width: 100vw;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   margin-left: 30px;
 }
 .boards-wrapper .board {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  width: 300px;
-  max-height: 600px;
+  width: 280px;
+  min-width: 280px;
   background-color: #ecedef;
   border-radius: 10px;
   border: 1px solid #eee;
@@ -57,33 +54,58 @@ header .add-board-btn:hover {
 .boards-wrapper .board:last-child {
   margin-right: 0;
 }
+.boards-wrapper .board:hover > .board-delete-btn {
+  opacity: 1;
+}
+.boards-wrapper .board .board-delete-btn {
+  display: inline-block;
+  background-image: url(../img/cross.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border: none;
+  border-radius: 50%;
+  vertical-align: top;
+  padding: 14px;
+  margin: 10px;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+.boards-wrapper .board .board-delete-btn:hover {
+  background-color: #ddd;
+}
 .boards-wrapper .board .board-title {
   display: inline-block;
+  width: 75%;
   font-size: 16px;
   color: #323a42;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 8px 4px;
   margin: 10px;
   cursor: pointer;
   transition: background 0.15s linear;
 }
 .boards-wrapper .board .board-title:hover {
-  background-color: #ccc;
+  background-color: #ddd;
 }
 .boards-wrapper .board .board-title-input {
-  display: block;
+  display: inline-block;
+  width: 75%;
   max-height: 200px;
   color: #323a42;
   font-weight: 700;
   outline: none;
-  border-radius: 5px;
+  border-radius: 4px;
   border: none;
   padding: 8px 4px;
   margin: 10px;
   resize: vertical;
 }
 .boards-wrapper .board .board-title-input:focus {
-  background-color: #ccc;
+  background-color: #ddd;
 }
 .boards-wrapper .board .board-content {
   height: 100%;
@@ -138,7 +160,7 @@ header .add-board-btn:hover {
   color: #323a42;
   font-size: 16px;
   word-break: break-all;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 8px 4px;
   margin: 12px 0;
   transition: 0.2s ease-in;
@@ -154,7 +176,7 @@ header .add-board-btn:hover {
   color: #323a42;
   font-weight: 700;
   outline: none;
-  border-radius: 5px;
+  border-radius: 4px;
   border: none;
   padding: 8px 4px;
   margin: 12px 0;
@@ -165,15 +187,25 @@ header .add-board-btn:hover {
 }
 .boards-wrapper .board .board-content .task .task-btn-delete {
   position: absolute;
-  top: 20px;
+  top: 18px;
   right: 10px;
-  width: 14px;
-  height: 14px;
   background-color: transparent;
   background-image: url("../img/cross.svg");
-  background-position: center center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 12px;
   border: none;
+  border-radius: 50%;
+  padding: 12px;
   cursor: pointer;
+  opacity: 0;
+  transition: 0.2s linear;
+}
+.boards-wrapper .board .board-content .task .task-btn-delete:hover {
+  background-color: #eee;
+}
+.boards-wrapper .board .board-content .task:hover > .task-btn-delete {
+  opacity: 1;
 }
 .boards-wrapper .board .board-content--hover {
   border-color: #ccc;

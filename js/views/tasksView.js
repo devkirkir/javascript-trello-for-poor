@@ -33,13 +33,15 @@ const tasksView = (taskList) => {
         let component = renderComponents(item, taskSkeleton, "task");
 
         component.addEventListener("dragstart", (e) => {
-            let dataAttr = e.target.getAttribute("data-task");
+            let dataAttr = e.target.getAttribute("task-id");
 
             e.dataTransfer.setData("data", dataAttr);
             e.dataTransfer.setData("id", item.id);
         });
 
-        document.getElementById(item.inBoard).appendChild(component);
+        document
+            .querySelector(`[canvas-board-id="${item.inBoard}"]`)
+            .appendChild(component);
     });
 };
 

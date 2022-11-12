@@ -1,9 +1,8 @@
 import updateModel from "../updateModel.js";
 
-const changeBoardTitle = (target) => {
+const changeBoardTitle = (target, boardId) => {
     let input = document.createElement("input"),
-        board = target.parentNode,
-        boardId = board.getAttribute("board-id");
+        board = target.parentNode;
 
     input.classList.add("board-title-input");
     input.value = target.textContent;

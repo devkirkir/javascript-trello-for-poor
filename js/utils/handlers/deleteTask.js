@@ -6,7 +6,7 @@ const deleteTask = (selector) => {
     deleteBtns.forEach((item) => {
         item.addEventListener("click", (e) => {
             let task = e.target.parentNode,
-                taskId = task.getAttribute("data-task").slice(4);
+                taskId = task.getAttribute("task-id");
 
             updateModel(item, {
                 type: "deleteTask",

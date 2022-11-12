@@ -7,8 +7,6 @@ const addBoard = (btnSelector) => {
     btn.addEventListener("click", () => {
         let { boards } = getData();
 
-        console.log(boards);
-
         let ids = new Set(),
             curr = 1;
 

@@ -1,5 +1,4 @@
 import renderComponents from "../utils/renderComponents.js";
-import addTask from "../utils/handlers/addTask.js";
 
 const boardsView = (boardsList) => {
     if (boardsList.length == 0) return;
@@ -14,6 +13,12 @@ const boardsView = (boardsList) => {
                 tagName: "h3",
                 props: {
                     class: "board-title",
+                },
+            },
+            {
+                tagName: "button",
+                props: {
+                    class: "board-delete-btn",
                 },
             },
             {
@@ -35,12 +40,6 @@ const boardsView = (boardsList) => {
     boardsList.forEach((item) => {
         let component = renderComponents(item, borderSkeleton, "board");
         document.querySelector(".boards-wrapper").append(component);
-    });
-
-    let addBtns = document.querySelectorAll(".board-button-new-task");
-
-    addBtns.forEach((btn) => {
-        btn.addEventListener("click", (e) => addTask(e.target));
     });
 };
 
