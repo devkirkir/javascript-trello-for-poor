@@ -18,12 +18,12 @@ window.addEventListener("DOMContentLoaded", () => {
     deleteTask(".task-btn-delete");
 
     addBoard(".add-board-btn");
-    tagsSettings(".edit-tags-btn", tags);
+    tagsSettings(tags);
 
     document.addEventListener("updateModel", (e) => {
         Model.setData(e.detail);
 
-        const { boards, tasks } = Model.getData();
+        const { boards, tasks, tags } = Model.getData();
 
         if (
             e.detail.type === "addTask" ||
@@ -49,8 +49,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
             deleteTask(".task-btn-delete");
             dragBoardContent(".board-content");
+        }
 
-            return;
+        if (e.detail.type === "addTag" || e.detail.type === "deleteTag") {
+            let taggs = document.querySelectorAll(".tag");
+
+            taggs.forEach((tag) => {
+                tag.remove();
+            });
+
+            tagsSettings(tags);
         }
     });
 });

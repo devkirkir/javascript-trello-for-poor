@@ -3,14 +3,17 @@
 let data = {
     tags: [
         {
+            id: 2,
             name: "Untagged",
             color: "#BBBBBB",
         },
         {
+            id: 4,
             name: "Design",
             color: "#E74F3A",
         },
         {
+            id: 7,
             name: "Development",
             color: "#0063A5",
         },
@@ -56,9 +59,9 @@ const getData = () => {
 const setData = (newData) => {
     switch (newData.type) {
         case "dropTask":
-            Object.values(data.tasks).map((item) => {
-                if (item.id == newData.taskId) {
-                    item.inBoard = newData.boardId;
+            data.tasks.forEach((task) => {
+                if (task.id == newData.taskId) {
+                    task.inBoard = newData.boardId;
                     return;
                 }
             });
@@ -68,9 +71,9 @@ const setData = (newData) => {
         case "deleteTask":
             let newTaskList = [];
 
-            Object.values(data.tasks).map((item) => {
-                if (item.id == newData.taskId) return;
-                newTaskList.push(item);
+            data.tasks.forEach((task) => {
+                if (task.id == newData.taskId) return;
+                newTaskList.push(task);
             });
 
             data = {
@@ -78,7 +81,6 @@ const setData = (newData) => {
                 tasks: newTaskList,
                 tasksCount: --data.tasks.length,
             };
-
             break;
 
         case "addTask":
@@ -99,9 +101,9 @@ const setData = (newData) => {
             break;
 
         case "changeTitle":
-            Object.values(data.tasks).map((item) => {
-                if (item.id == newData.taskId) {
-                    item.title = newData.title;
+            data.tasks.forEach((task) => {
+                if (task.id == newData.taskId) {
+                    task.title = newData.title;
                     return;
                 }
             });
@@ -109,10 +111,10 @@ const setData = (newData) => {
             break;
 
         case "changeTag":
-            Object.values(data.tasks).map((item) => {
-                if (item.id == newData.taskId) {
-                    item.tag = newData.newTag;
-                    item.tagColor = newData.newColor;
+            data.tasks.forEach((task) => {
+                if (task.id == newData.taskId) {
+                    task.tag = newData.newTag;
+                    task.tagColor = newData.newColor;
                     return;
                 }
             });
@@ -120,9 +122,9 @@ const setData = (newData) => {
             break;
 
         case "changeBoardTitle":
-            Object.values(data.boards).map((item) => {
-                if (item.id == newData.boardId) {
-                    item.title = newData.title;
+            data.boards.forEach((board) => {
+                if (board.id == newData.boardId) {
+                    board.title = newData.title;
                     return;
                 }
             });
@@ -148,13 +150,13 @@ const setData = (newData) => {
                 newTasksList = [],
                 idsIndex = 0;
 
-            Object.values(data.boards).map((board) => {
+            data.boards.forEach((board) => {
                 if (board.id == newData.boardId) return;
                 newBoardsList.push(board);
             });
 
             if (newData.tasksIds.length > 0) {
-                Object.values(data.tasks).map((task) => {
+                data.tasks.forEach((task) => {
                     if (task.id == newData.tasksIds[idsIndex]) {
                         idsIndex++;
                         return;
@@ -178,7 +180,7 @@ const setData = (newData) => {
             let oldTags = [];
 
             data.tags.forEach((tag) => {
-                if (tag.name == newData.tag) return;
+                if (tag.id == newData.tagId) return;
 
                 oldTags.push(tag);
             });
@@ -187,32 +189,44 @@ const setData = (newData) => {
                 ...data,
                 tags: [
                     ...oldTags,
-                    { name: newData.value, color: newData.color },
+                    {
+                        id: newData.tagId,
+                        name: newData.value,
+                        color: newData.color,
+                    },
                 ],
             };
 
             break;
 
-        // case "changeTagColor":
-        //     let oldColorTags = [];
+        case "addTag":
+            data = {
+                ...data,
+                tags: [
+                    ...data.tags,
+                    {
+                        id: newData.tagId,
+                        name: newData.value,
+                        color: newData.color,
+                    },
+                ],
+            };
+            break;
 
-        //     data.tags.forEach((tag) => {
-        //         if (tag.color == newData.color) return;
+        case "deleteTag":
+            let oldTagsDelete = [];
 
-        //         oldColorTags.push(tag);
-        //     });
+            data.tags.forEach((tag) => {
+                if (tag.id == newData.tagId) return;
 
-        //     console.log(oldColorTags);
+                oldTagsDelete.push(tag);
+            });
 
-        //     data = {
-        //         ...data,
-        //         tags: [
-        //             ...oldColorTags,
-        //             { name: newData.value, color: newData.color },
-        //         ],
-        //     };
-        //     break;
-
+            data = {
+                ...data,
+                tags: [...oldTagsDelete],
+            };
+            break;
         default:
             console.log("data", data);
 

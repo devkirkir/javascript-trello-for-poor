@@ -1,5 +1,6 @@
 import updateModel from "../updateModel.js";
 import { getData } from "../../model.js";
+import { generateId } from "../utils.js";
 
 const addBoard = (btnSelector) => {
     const btn = document.querySelector(btnSelector);
@@ -7,24 +8,9 @@ const addBoard = (btnSelector) => {
     btn.addEventListener("click", () => {
         let { boards } = getData();
 
-        let ids = new Set(),
-            curr = 1;
-
-        boards.forEach((item) => {
-            ids.add(item.id);
-        });
-
-        while (ids.has(curr)) {
-            curr++;
-        }
-
-        if (!ids.has(curr)) {
-            ids.add(curr);
-        }
-
         updateModel(btn, {
             type: "addBoard",
-            id: curr,
+            id: generateId(boards),
             title: "Title",
         });
     });

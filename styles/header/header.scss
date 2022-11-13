@@ -1,0 +1,22 @@
+header {
+    position: fixed;
+    top: 0;
+    padding: 20px 30px;
+
+    .header-btn {
+        @include btns;
+    }
+
+    .add-board-btn {
+        &:before {
+            content: "";
+            display: inline-block;
+            vertical-align: baseline;
+            width: 14px;
+            height: 14px;
+            background-image: url("../img/plus.svg");
+            background-size: contain;
+            margin: 0 10px -2px 0;
+        }
+    }
+}

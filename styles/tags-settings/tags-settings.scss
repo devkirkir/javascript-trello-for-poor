@@ -1,0 +1,133 @@
+@mixin inputs {
+    color: #323a42;
+    background-color: #eee;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    padding: 8px 6px;
+}
+
+.tags {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    min-width: 320px;
+    opacity: 0;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    padding: 0 12px;
+    box-shadow: 0 5px 5px #ccc;
+    transform: translateX(100%);
+    overflow-y: auto;
+    animation: slideOut 0.2s forwards;
+
+    .tags-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+
+        h4 {
+            color: #323a42;
+            font-size: 22px;
+        }
+
+        .tags-close {
+            @include btns;
+        }
+    }
+
+    .tags-container {
+        .tag {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .tag-input-text {
+                flex: 1;
+                @include inputs;
+            }
+
+            .tag-input-color {
+                height: 40px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            .tag-delete-btn {
+                @include btns;
+                background-color: #eee;
+                padding: 8px;
+
+                &:hover {
+                    background-color: #ddd;
+                }
+            }
+        }
+    }
+
+    .form-add {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+
+        .tag-input {
+            flex: 1;
+            min-width: 250px;
+            @include inputs;
+        }
+
+        .color-input {
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .tag-add-btn {
+            @include btns;
+            flex: 1;
+            background-color: #eee;
+            margin-top: 5px;
+
+            &:hover {
+                background-color: #ddd;
+            }
+        }
+    }
+}
+
+.tags-active {
+    animation: slideIn 0.2s forwards;
+    transform: translateX(0);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

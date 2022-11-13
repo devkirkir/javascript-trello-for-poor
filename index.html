@@ -16,9 +16,24 @@
         <div class="boards-wrapper"></div>
 
         <div class="tags">
-            <h4>Tag's settings</h4>
+            <div class="tags-header">
+                <h4>Tag's settings</h4>
+                <button class="tags-close">Close</button>
+            </div>
 
             <div class="tags-container"></div>
+
+            <div class="form-add">
+                <input
+                    type="text"
+                    class="tag-input"
+                    placeholder="Type tag..."
+                />
+
+                <input type="color" class="color-input" />
+
+                <button class="tag-add-btn">Add Tag</button>
+            </div>
         </div>
 
         <script src="js/controller.js" type="module"></script>
