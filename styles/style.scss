@@ -28,29 +28,3 @@
 @import "boards-wrapper/boards-wrapper.scss";
 
 @import "tags-settings/tags-settings.scss";
-
-.err {
-    border-color: #ff5f5f !important;
-}
-
-.err-message {
-    position: absolute;
-    top: -55px;
-    left: 40px;
-    color: #fff;
-    background-color: #ff5f5f;
-    border-radius: 4px;
-    padding: 10px 20px;
-
-    &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        bottom: -8px;
-        left: calc(50% - 8px);
-        background-color: #ff5f5f;
-        transform: rotate(45deg);
-    }
-}

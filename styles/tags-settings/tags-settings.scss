@@ -81,8 +81,8 @@
         .tag-input {
             flex: 1;
             min-width: 250px;
-            border: 1px solid transparent;
             @include inputs;
+            border: 1px solid transparent;
         }
 
         .color-input {

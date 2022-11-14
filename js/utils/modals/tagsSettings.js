@@ -66,13 +66,12 @@ const tagsSettings = (tags) => {
         });
     });
 
-    let tagAddInput = document.querySelector(".tag-input");
-
     function addTag() {
-        // if (tagAddInput.value.length <= 0) {
-        //     error(tagAddInput);
-        //     return;
-        // }
+        let tagAddInput = document.querySelector(".tag-input");
+
+        if (tagAddInput.value.length <= 0) {
+            return;
+        }
 
         updateModel(addBtn, {
             type: "addTag",

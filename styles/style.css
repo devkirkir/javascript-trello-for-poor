@@ -324,13 +324,13 @@ header .add-board-btn:before {
 .tags .form-add .tag-input {
   flex: 1;
   min-width: 250px;
-  border: 1px solid transparent;
   color: #323a42;
   background-color: #eee;
   border: none;
   border-radius: 4px;
   outline: none;
   padding: 8px 6px;
+  border: 1px solid transparent;
 }
 .tags .form-add .color-input {
   height: 40px;
@@ -382,30 +382,6 @@ header .add-board-btn:before {
     opacity: 0;
     transform: translateX(100%);
   }
-}
-.err {
-  border-color: #ff5f5f !important;
-}
-
-.err-message {
-  position: absolute;
-  top: -55px;
-  left: 40px;
-  color: #fff;
-  background-color: #ff5f5f;
-  border-radius: 4px;
-  padding: 10px 20px;
-}
-.err-message::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  bottom: -8px;
-  left: calc(50% - 8px);
-  background-color: #ff5f5f;
-  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=style.css.map */
