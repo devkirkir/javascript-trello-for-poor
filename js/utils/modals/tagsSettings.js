@@ -66,12 +66,19 @@ const tagsSettings = (tags) => {
         });
     });
 
+    let tagAddInput = document.querySelector(".tag-input");
+
     function addTag() {
+        // if (tagAddInput.value.length <= 0) {
+        //     error(tagAddInput);
+        //     return;
+        // }
+
         updateModel(addBtn, {
             type: "addTag",
             tagId: generateId(tags),
             color: document.querySelector(".color-input").value,
-            value: document.querySelector(".tag-input").value,
+            value: tagAddInput.value,
         });
 
         addBtn.removeEventListener("click", addTag);
