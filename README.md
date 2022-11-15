@@ -11,7 +11,7 @@ I decided to try to use something similar to the MVC pattern.
 -   SCSS
 -   JS
 
-## Дерево проекта
+## Work's tree
 
     ┣ img/
     ┃ ┃ cross.svg
