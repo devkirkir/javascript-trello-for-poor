@@ -3,7 +3,7 @@
 I have never used Trello, but I decided to write such a project anyway.
 I decided to try to use something similar to the MVC pattern.
 
-🔗 [GitHub Pages](https://devkirkir.github.io/javascript-trello_for_poor/)
+🔗 [GitHub Pages](https://devkirkir.github.io/javascript-trello-for-poor/)
 
 ## Technologies
 
